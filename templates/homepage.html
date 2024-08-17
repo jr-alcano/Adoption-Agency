@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption</title>
+</head>
+<body>
+    <h1>Pets Available for Adoption</h1>
+    <ul class="pet-list">
+        {% for pet in pets %}
+        <li>
+            <h2>{{ pet.name }}</h2>
+            {% if pet.photo_url %}
+            <img src="{{ pet.photo_url }}" alt="{{ pet.name }}'s photo" width="200">
+            {% endif %}
+            <p>{{ pet.species }}</p>
+            {% if pet.available %}
+            <p><strong>Available</strong></p>
+            {% else %}
+            <p><em>Not available</em></p>
+            {% endif %}
+            <p><a href="/pet/{{ pet.id }}">Edit {{ pet.name }}</a></p>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <p><a href="/add">Add a New Pet</a></p>
+</body>
+</html>

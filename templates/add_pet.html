@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Pet</title>
+</head>
+<body>
+    <h1>Add a Pet</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}<br>
+            {% for error in form.name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.species.label }}<br>
+            {{ form.species(size=32) }}<br>
+            {% for error in form.species.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.photo_url.label }}<br>
+            {{ form.photo_url(size=32) }}<br>
+            {% for error in form.photo_url.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.age.label }}<br>
+            {{ form.age() }}<br>
+            {% for error in form.age.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.notes.label }}<br>
+            {{ form.notes(cols=50, rows=5) }}<br>
+            {% for error in form.notes.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+
+        <p>
+            {{ form.available.label }}<br>
+            {{ form.available() }}
+        </p>
+
+        <p>
+            <button type="submit">Add Pet</button>
+        </p>
+    </form>
+
+    <p><a href="/">Back to home</a></p>
+</body>
+</html>
